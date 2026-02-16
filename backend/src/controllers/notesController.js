@@ -1,15 +1,38 @@
-export function getAllNotes(req, res) {
-     res.status(200).send("you just fetched the notes");
- }
+import Note from "../models/Note.js";
+
+export async function getAllNotes(req, res) {
+    try{
+        const notes = await Note.find()
+        res.status(200).json(notes)
+    } catch(err){
+        console.error("Error in getAllNotes controller",err)
+        res.status(500).json({message:"Inter server error"})
+    }
+}
  
- export function createNote(req, res) {
-     res.status(200).json({message: "Note created successfully"});
- };
+ export async function createNote(req, res) {
+    try {
+        const {title,content} = req.body;
+        const note = new Note({title, content})
 
-  export function updateNote(req, res) {
-     res.status(200).json({message: "Note updated successfully"});
- };
+       const savedNote = await note.save()
+        res.status(201).json(savedNote);
+   } catch(err){
+        console.error("Error in getAllNotes controller",err)
+        res.status(500).json({message:"Inter server error"})
+    }
+};
 
-  export function deleteNote(req, res) {
+  export async function updateNote(req, res) {
+    try {
+        const {title,content} = req.body
+        await Note.findByIdAndUpdate(req.params.id,{title,content})
+        res.status(200).json({message: "Note updated successfully"})
+    } catch (error) {
+
+    }
+   };
+
+  export async function deleteNote(req, res) {
      res.status(200).json({message: "Note deleted successfully"});
  };
