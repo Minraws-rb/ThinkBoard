@@ -1,0 +1,4 @@
+middleware 
+Uses: auth check--> is user logged in or not?
+    : rate limiting--> like only 100 request per user 15 minutes--> we will use upstash
+    
