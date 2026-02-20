@@ -1,19 +1,25 @@
 import React from 'react'
+import { Route, Routes} from "react-router";
 
-import homepage from './pages/homepage';
-import createpage from './pages/createpage';
-import notedetailpage from './pages/notedetailpage';
+import HomePage from './pages/homepage';
+import CreatePage from './pages/createpage';
+import NoteDetailPage from './pages/notedetailpage';
+import toast from 'react-hot-toast';
 const App = () => {
-  return  <div>
+  return  (<div>
+
+    <button onClick={() => toast.success("congrats")}>
+      Click me
+      </button>
 
       <Routes>
-        <Route path="/" element={< homepage />} />
-        <Route path="/create" element={< createpage />} />
-        <Route path="/create/:id" element={< notedetailpage />} />
+        <Route path="/" element={< HomePage />} />
+        <Route path="/create" element={< CreatePage />} />
+        <Route path="/create/:id" element={< NoteDetailPage />} />
 
       </Routes>
-    </div>;
+    </div>);
   
 };
 
-export default App
+export default App;

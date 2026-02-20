@@ -1,11 +1,7 @@
 import React from 'react'
 
-const notedetailpage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const NoteDetailPage = () => {
+  return <div> NoteDetailPage </div>;
+};
 
-export default notedetailpage
+export default NoteDetailPage;
