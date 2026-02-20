@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 const App = () => {
   return  (<div>
 
-    <button onClick={() => toast.success("congrats")}>
+    <button onClick={() => toast.success("congrats")} className="text-red-500 p-4 bg-pink-300">
       Click me
       </button>
 
